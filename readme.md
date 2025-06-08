@@ -1,5 +1,32 @@
 This is the PSION EPOC/Symbian R5 C++ SDK, adapted to work under modern (2021) 64 bit Linux.
 
+# Building SDK in Docker
+
+Build the image:
+
+```bash
+sudo docker build . -t psion-sdk
+```
+
+Run it:
+
+```bash
+sudo docker run --rm -d --name psion-sdk psion-sdk sleep infinity
+```
+
+Copy the SDK outside of the container and correct the ownership:
+
+```bash
+sudo docker cp psion-sdk:/opt/sdk .
+sudo chown -R $(id -u):$(id -g) sdk
+```
+
+Stop the container:
+
+```bash
+sudo docker stop -t 0 psion-sdk
+```
+
 # Installation
 
 You need the following dependencies:
